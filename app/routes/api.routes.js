@@ -1,12 +1,18 @@
 const { authJwt } = require("../middleware");
-const controller = require("../controllers/api.controller");
+
+const User = require("../controllers/API/CRUD.user.controller");
+const Alert = require("../controllers/API/CRUD.alert.controller");
+const Comment = require("../controllers/API/CRUD.comments.controller");
+const KB = require("../controllers/API/CRUD.knowledge.controller");
+const Role = require("../controllers/API/CRUD.role.controller");
 
 module.exports = function(app) {
 
-    app.get("/api/alerts-comments", controller.getAlertComments);
-    app.get("/api/alert-KB", controller.getAlertKB);
+    app.get("/api/alerts-comments",[authJwt.verifyToken, authJwt.isAdmin], Alert.getAlertComments);
+    app.get("/api/alert-KB",[authJwt.verifyToken], KB.getAlertKB);
 
-    app.post("/api/addAlert", controller.addAlert);
-    app.post("/api/addUser", [authJwt.verifyToken, authJwt.isModerator],controller.addUser);
-    app.post("/api/addKB",[authJwt.verifyToken, authJwt.isModerator], controller.addKB);
+
+    app.post("/api/addAlert",[authJwt.verifyToken, authJwt.isAdmin], Alert.addAlert);
+    app.post("/api/addUser", [authJwt.verifyToken, authJwt.isAdmin], User.addUser);
+    app.post("/api/addKB",[authJwt.verifyToken, authJwt.isAdmin], KB.addKB);
 };

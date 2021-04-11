@@ -1,5 +1,6 @@
 const { authJwt } = require("../middleware");
 const controller = require("../controllers/user.controller");
+const Alert = require("../controllers/API/CRUD.alert.controller");
 
 module.exports = function(app) {
   app.use(function(req, res, next) {
@@ -16,6 +17,12 @@ module.exports = function(app) {
     "/api/test/user",
     [authJwt.verifyToken],
     controller.userBoard
+  );
+  
+
+  app.post(
+      "/api/test/alert",
+      Alert.addAlert
   );
 
   app.get(
