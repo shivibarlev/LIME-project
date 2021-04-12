@@ -8,7 +8,7 @@ const Role = require("../controllers/API/CRUD.role.controller");
 
 module.exports = function(app) {
 
-    app.get("/api/alerts-comments",[authJwt.verifyToken, authJwt.isAdmin], Alert.getAlertComments);
+    app.get("/api/alerts-comments",[authJwt.verifyToken, authJwt.isAdmin], Comment.getAlertComments);
     app.get("/api/alert-KB",[authJwt.verifyToken], KB.getAlertKB);
 
 
