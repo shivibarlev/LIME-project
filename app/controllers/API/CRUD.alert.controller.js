@@ -20,6 +20,9 @@ exports.addAlert = (req, res) => {
             priority: req.body.priority
         }
     )
-    Alert.findAll();
 };
 
+exports.getAlerts = (req, res) => {
+    res.body.alerts = Alert.findAll({where: {status: req.body.status}})
+    return res;
+};
