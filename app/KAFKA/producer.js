@@ -2,7 +2,19 @@ const Kafka = require("node-rdkafka");
 // read the KAFKA Brokers and KAFKA_TOPIC values from the local file config.js
 const externalConfig = require('./config')
 // function to generate a message
-const generateMessage = () => new Buffer.from(`{Generated: message}`)
+const generateMessage = () => new Buffer.from(
+    `{
+                    "name": "User added to admin account",
+                    "Summary": "Signature ID 'BI Win user added to admins group'****",
+                    "eventID": "123456789",
+                    "sourceIP": "10.10.10.10",
+                    "destinationIP": "10.10.10.10",
+                    "sourceUser": "123456789",
+                    "destinationUser": "shivi",
+                    "eventCount": "5",
+                    "sigID": "11-111111",
+                    "rule": "BI Win user added to admins group object = smslogin"
+                    }`)
 
 function generateAndProduceMessages(arg) {
     for (var i = 0; i < messageBatchSize; i++) {
@@ -38,6 +50,6 @@ function prepareProducer(producer) { // event handler attached to the Kafka Prod
     });
     // This event handler is triggered whenever the event.log event is emitted, which is quite often
     producer.on('event.log', function (log) { // uncomment the next line if you want to see a log message every step of the way
-        console.log(log);
+        //console.log(log);
     });
 }

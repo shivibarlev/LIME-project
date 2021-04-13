@@ -11,7 +11,7 @@ const kafkaConf = {...externalConfig.kafkaConfig ,
 const topics = [externalConfig.topic]
 let stream = new Kafka.KafkaConsumer.createReadStream(kafkaConf, { "auto.offset.reset": "earliest" }, { topics: topics })
 stream.on('data', function (message) {
-    console.log(`Consumed message on Stream: ${message.value.json.toString()}`);
+    console.log(`Consumed message on Stream: ${message.value.toString()}`);
     // the structure of the messages is as follows:
     // {
     // value: Buffer.from('hi'),  // message contents as a Buffer
