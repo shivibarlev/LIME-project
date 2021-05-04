@@ -1,5 +1,7 @@
 const Kafka = require("node-rdkafka"); // see: https://github.com/blizzard/node-rdkafka
 const externalConfig = require('./config');
+const Alert = require("../controllers/API/CRUD.alert.controller");
+
 const CONSUMER_GROUP_ID = "node-consumer"
 // construct a Kafka Configuration object understood by the node-rdkafka library
 // merge the configuration as defined in config.js with additional properties defined here
@@ -12,6 +14,7 @@ const topics = [externalConfig.topic]
 let stream = new Kafka.KafkaConsumer.createReadStream(kafkaConf, { "auto.offset.reset": "earliest" }, { topics: topics })
 stream.on('data', function (message) {
     console.log(`Consumed message on Stream: ${message.value.toString()}`);
+    Alert.addAlert(JSON.parse(message.value.toString()));
     // the structure of the messages is as follows:
     // {
     // value: Buffer.from('hi'),  // message contents as a Buffer

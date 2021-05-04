@@ -3,21 +3,21 @@ const Alert = db.alert;
 
 
 
-exports.addAlert = (req, res) => {
+exports.addAlert = (message) => {
     Alert.create(
         {
-            name: req.body.name,
-            summary: req.body.summary,
-            event_ID: req.body.event_ID,
-            source_IP: req.body.source_IP,
-            dest_IP: req.body.dest_IP,
-            source_user: req.body.source_user,
-            dest_user: req.body.dest_user,
-            event_count: req.body.event_count,
-            sig_ID:req.body.sig_ID,
-            rule: req.body.rule,
+            name: message.name,
+            summary: message.summary,
+            event_ID: message.event_ID,
+            source_IP: message.source_IP,
+            dest_IP: message.dest_IP,
+            source_user: message.source_user,
+            dest_user: message.dest_user,
+            event_count: message.event_count,
+            sig_ID: message.sig_ID,
+            rule: message.rule,
             status: 'Triggered',
-            priority: req.body.priority
+            priority: message.priority
         }
     )
 };
