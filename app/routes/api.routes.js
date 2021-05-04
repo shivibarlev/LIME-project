@@ -15,4 +15,6 @@ module.exports = function(app) {
     //app.post("/api/addAlert",[authJwt.verifyToken, authJwt.isAdmin], Alert.addAlert);
     app.post("/api/addUser", [authJwt.verifyToken, authJwt.isAdmin], User.addUser);
     app.post("/api/addKB",[authJwt.verifyToken, authJwt.isAdmin], KB.addKB);
+    app.post("/api/acknowledge",[authJwt.verifyToken], Alert.acknowledge);
+
 };

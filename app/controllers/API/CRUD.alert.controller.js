@@ -27,3 +27,9 @@ exports.getAlerts = (req, res) => {
     return res;
 };
 
+exports.acknowledge = (req, res) => {
+    let alert = Alert.find({where: {event_ID: req.body.event_ID}});
+    alert.status = 'Acknowledged';
+    return res;
+};
+
