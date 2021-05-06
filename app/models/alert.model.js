@@ -11,10 +11,10 @@ module.exports = (sequelize, Sequelize) => {
             primaryKey: true
         },
         source_IP: {
-            type: Sequelize.INTEGER
+            type: Sequelize.STRING
         },
         dest_IP: {
-            type: Sequelize.INTEGER
+            type: Sequelize.STRING
         },
         source_user: {
             type: Sequelize.INTEGER
@@ -26,7 +26,7 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.INTEGER
         },
         sig_ID: {
-            type: Sequelize.INTEGER
+            type: Sequelize.STRING
         },
         rule: {
             type: Sequelize.STRING

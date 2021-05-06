@@ -26,6 +26,8 @@ stream.on('data', function (message) {
     // timestamp: 1510325354780 // timestamp of message creation
     // }
 });
+
+
 console.log(`Stream consumer created to consume from topic ${topics}`);
 stream.consumer.on("disconnected", function (arg) {
     console.log(`The stream consumer has been disconnected`)

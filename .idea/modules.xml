@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/node-js-jwt-authentication-postgresql-master.iml" filepath="$PROJECT_DIR$/.idea/node-js-jwt-authentication-postgresql-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/LIME project.iml" filepath="$PROJECT_DIR$/.idea/LIME project.iml" />
     </modules>
   </component>
 </project>

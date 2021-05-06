@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-var logger = require('morgan');
+const logger = require('morgan');
 const app = express();
 
 //added this comment for test
@@ -74,5 +74,50 @@ function initial() {
   Role.create({
     id: 3,
     name: "admin"
+  });
+
+  db.alert.create({
+    name: "User added to admin account",
+    summary: "Signature ID 'BI Win user added to admins group'****",
+    event_ID: "1",
+    source_IP: "10.10.10.10",
+    dest_IP: "10.10.10.10",
+    source_user: "123456789",
+    dest_user: "shivi",
+    event_count: "5",
+    sig_ID: "11-111111",
+    rule: "BI Win user added to admins group object = smslogin",
+    status: 'Triggered',
+    priority: 'Critical',
+  });
+
+  db.alert.create({
+    name: "User added to admin account",
+    summary: "Signature ID 'BI Win user added to admins group'****",
+    event_ID: "2",
+    source_IP: "10.10.10.10",
+    dest_IP: "10.10.10.10",
+    source_user: "123456789",
+    dest_user: "shivi",
+    event_count: "5",
+    sig_ID: "11-111111",
+    rule: "BI Win user added to admins group object = smslogin",
+    status: 'Triggered',
+    priority: 'Critical',
+  });
+
+  db.alert.create({
+    name: "User added to admin account",
+    summary: "Signature ID 'BI Win user added to admins group'****",
+    event_ID: "3",
+    source_IP: "10.10.10.10",
+    dest_IP: "10.10.10.10",
+    source_user: "123456789",
+    dest_user: "shivi",
+    event_count: "5",
+    sig_ID: "11-111111",
+    rule: "BI Win user added to admins group object = smslogin",
+    status: 'Triggered',
+    priority: 'Critical',
   });
 }
