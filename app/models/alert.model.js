@@ -40,6 +40,7 @@ module.exports = (sequelize, Sequelize) => {
         },
         priority: {
             type: Sequelize.STRING,
+            defaultValue: 'Critical',
             validate: {
                 isIn: [['Critical', 'Severe', 'Warning']]
             }
