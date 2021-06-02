@@ -10,12 +10,13 @@ module.exports = function(app) {
 
     app.get("/api/alerts-comments",[authJwt.verifyToken], Comment.getAlertComments);
     app.get("/api/alert-KB",[authJwt.verifyToken], KB.getAlertKB);
-    app.get("/api/getAlerts",[authJwt.verifyToken], Alert.getAlerts);
+    app.get("/api/getAlerts", Alert.getAlerts);
 
 
     app.post("/api/addUser", [authJwt.verifyToken, authJwt.isAdmin], User.addUser);
     app.post("/api/addKB",[authJwt.verifyToken, authJwt.isAdmin], KB.addKB);
     app.post("/api/acknowledge",[authJwt.verifyToken], Alert.acknowledge);
+    app.post("/api/resolve",[authJwt.verifyToken], Alert.resolve);
     app.post("/api/addComment",[authJwt.verifyToken], Comment.addComment);
 
 };

@@ -39,9 +39,7 @@ db.user.belongsToMany(db.role, {
   otherKey: "roleId"
 });
 
-db.alert.belongsToMany(db.comment,{
 
-});
 
 db.ROLES = ["user", "admin", "moderator"];
 

@@ -22,14 +22,22 @@ exports.addAlert = (message) => {
     )
 };
 
-exports.getAlerts = (req, res) => {
-    res.body.alerts = Alert.findAll({where: {status: req.body.status}})
+exports.getAlerts = async (req, res) => {
+    //let alerts = await Alert.findAll({where: {status: req.body.status}});
+    let alerts = await Alert.findAll();
+    res.json(alerts);
     return res;
 };
 
 exports.acknowledge = (req, res) => {
     let alert = Alert.find({where: {event_ID: req.body.event_ID}});
     alert.status = 'Acknowledged';
-    return res;
 };
+
+exports.resolve = (req, res) => {
+    let alert = Alert.find({where: {event_ID: req.body.event_ID}});
+    alert.status = 'Resolved';
+};
+
+
 
