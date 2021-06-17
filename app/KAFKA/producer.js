@@ -2,23 +2,23 @@ const Kafka = require("node-rdkafka");
 // read the KAFKA Brokers and KAFKA_TOPIC values from the local file config.js
 const externalConfig = require('./config')
 // function to generate a message
-const generateMessage = () => new Buffer.from(
+const generateMessage = (ID) => new Buffer.from(
     `{
                     "name": "User added to admin account",
-                    "Summary": "Signature ID 'BI Win user added to admins group'****",
-                    "eventID": "123456789",
-                    "sourceIP": "10.10.10.10",
-                    "destinationIP": "10.10.10.10",
-                    "sourceUser": "123456789",
-                    "destinationUser": "shivi",
-                    "eventCount": "5",
-                    "sigID": "11-111111",
+                    "summary": "Signature ID 'BI Win user added to admins group'****",
+                    "event_ID": ${ID},
+                    "source_IP": "10.10.10.10",
+                    "dest_IP": "10.10.10.10",
+                    "source_user": "123456789",
+                    "dest_user": "shivi",
+                    "event_count": "5",
+                    "sig_ID": "11-111111",
                     "rule": "BI Win user added to admins group object = smslogin"
                     }`)
 
 function generateAndProduceMessages(arg) {
     for (var i = 0; i < messageBatchSize; i++) {
-        producer.produce(topic, -1, generateMessage(), i)
+        producer.produce(topic, -1, generateMessage(i), i)
     }
     console.log(`producer ${arg.name} is done producing messages to Kafka Topic ${topic}.`)
 }

@@ -39,7 +39,22 @@ db.user.belongsToMany(db.role, {
   otherKey: "roleId"
 });
 
+db.user.belongsTo(db.comment,{
+    through: "comment_owner",
+    foreignKey: "userId"
+})
 
+db.alert.hasOne(db.knowledge, {
+    through: "alert_id"
+})
+
+db.alert.hasOne(db.user,{
+    through: "userId"
+})
+
+db.knowledge.hasOne(db.user,{
+    through: "userId"
+})
 
 db.ROLES = ["user", "admin", "moderator"];
 

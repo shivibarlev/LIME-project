@@ -19,7 +19,10 @@ exports.addAlert = (message) => {
             status: 'Triggered',
             priority: message.priority
         }
-    )
+    ).catch(function(err) {
+        // print the error details
+        console.log(err, message);
+    })
 };
 
 exports.getAlerts = async (req, res) => {

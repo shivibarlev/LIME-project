@@ -1,7 +1,8 @@
 module.exports = (sequelize, Sequelize) => {
     const Knowledge = sequelize.define("knowledge", {
         alert_id: {
-            type: Sequelize.INTEGER
+            type: Sequelize.INTEGER,
+            unique: true
         },
         owner_id: {
             type: Sequelize.INTEGER

@@ -79,7 +79,7 @@ function initial() {
   db.alert.create({
     name: "User added to admin account",
     summary: "Signature ID 'BI Win user added to admins group'****",
-    event_ID: "1",
+    event_ID: 3,
     source_IP: "10.10.10.10",
     dest_IP: "10.10.10.10",
     source_user: "123456789",
@@ -94,7 +94,7 @@ function initial() {
   db.alert.create({
     name: "User added to admin account",
     summary: "Signature ID 'BI Win user added to admins group'****",
-    event_ID: "2",
+    event_ID: 4,
     source_IP: "10.10.10.10",
     dest_IP: "10.10.10.10",
     source_user: "123456789",
@@ -109,7 +109,7 @@ function initial() {
   db.alert.create({
     name: "User added to admin account",
     summary: "Signature ID 'BI Win user added to admins group'****",
-    event_ID: "3",
+    event_ID: 5,
     source_IP: "10.10.10.10",
     dest_IP: "10.10.10.10",
     source_user: "123456789",
