@@ -14,6 +14,7 @@ const topics = [externalConfig.topic]
 let stream = new Kafka.KafkaConsumer.createReadStream(kafkaConf, { "auto.offset.reset": "earliest" }, { topics: topics })
 stream.on('data', function (message) {
     console.log(`Consumed message on Stream: ${message.value.toString()}`);
+    //add to the DB
     Alert.addAlert(JSON.parse(message.value.toString()));
 
 });
