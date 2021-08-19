@@ -4,7 +4,6 @@ const cors = require("cors");
 const logger = require('morgan');
 const app = express();
 
-//added this comment for test
 
 
 var corsOptions = {
@@ -46,13 +45,11 @@ app.get('/profile', function (req,res) {
   res.sendFile(path + "profile");
 });
 
-//app.use('/register', regRoute);
 
 // routes
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
 require('./app/routes/api.routes')(app);
-//require('./app/routes/main.routes')(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
@@ -60,6 +57,8 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
 
+
+//create some initial data to work with
 function initial() {
   Role.create({
     id: 1,
